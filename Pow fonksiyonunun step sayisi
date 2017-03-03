@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int dongu=1; // global olarak tanımlamalıyız
+
+long pow(int a, int b){
+      
+  if (b==0) return 1;
+  if (b==1) return a;
+  
+  if (b%2==0){
+     dongu++;
+     return  pow( a*a , b/2);
+     
+  }
+  else{
+      dongu++;
+      return pow( a*a, b/2)*a;
+  }
+   return dongu;
+  
+} 
+
+int main(int argc, char *argv[])
+{
+  int a;
+  int b;
+
+  printf("Tabani giriniz: ");
+  scanf("%d",&a);
+  printf("Ussu giriniz: ");
+  scanf("%d",&b);
+  printf("\n"); 
+  
+  printf("Sonuc: %d \n ", pow(a,b));
+  printf("Step sayisi: %d ", dongu );
+
+  
+  system("PAUSE");	
+  return 0;
+}
+
+// a sayısını yani tabanı kendi ile çarparak devam eder.
+//b sayısını yani üssü yarıya bölerek gider
+// b sayısı 1'e eşit olana kadar işlem döner
+//k adımda yapılmış sayalım.  
+//Karmaşıklık 2 üssü k olur
+// b= (2 üssü k) denklemine logaritma uygularsak k=logb olur.
+// Bu kodun karmaşıklığı O(logb) 'dir.
