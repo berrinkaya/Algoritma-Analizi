@@ -1,0 +1,76 @@
+A Grubu 
+
+1. O(b) durumu çözümü:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+  int a;
+  int b;
+  int i=0;
+  int sonuc=1;
+  printf("Tabani giriniz: ");
+  scanf("%d",&a);
+  printf("Ussu giriniz: ");
+  scanf("%d",&b);
+  printf("\n");
+  
+  for(i=0; i<b ; i++){        
+            sonuc=sonuc * a;       
+  } 
+  printf("Sonuc= %d\n", sonuc); 
+  
+  system("PAUSE");	
+  return 0;
+}
+
+// 1+1+2+2+5*i
+//i = for döngüsünün çalışma sayısı
+//6+5*i işleminde 6 yı yok sayarsak, i=0 dan i=b ye kadar olan değerleri toplarız
+//5 i de yok sayarsak karmaşıklığı O(n)
+
+2. O(logb) durumu çözümü:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+long pow(int a, int b){
+       
+  if (b==0) return 1;
+  if (b==1) return a;
+  
+  if (b%2==0){
+     return  pow( a*a , b/2);
+  }
+  else{
+      return pow( a*a, b/2)*a;
+  }
+} 
+
+int main(int argc, char *argv[])
+{
+  int a;
+  int b;
+  int i=0;
+  int sonuc=1;
+  printf("Tabani giriniz: ");
+  scanf("%d",&a);
+  printf("Ussu giriniz: ");
+  scanf("%d",&b);
+  printf("\n"); 
+  
+  printf(" %d ", pow(a,b));
+  
+  system("PAUSE");	
+  return 0;
+}
+
+// a sayısını yani tabanı kendi ile çarparak devam eder.
+//b sayısını yani üssü yarıya bölerek gider
+// b sayısı 1'e eşit olana kadar işlem döner
+//k adımda yapılmış sayalım.  
+//Karmaşıklık 2 üssü k olur
+// b= (2 üssü k) denkelmine logaritma uygularsak k=logb olur.
+// Bu kodun karmaşıklığı O(logb) 'dir.
