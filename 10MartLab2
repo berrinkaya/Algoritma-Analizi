@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+    int dizi[]={ };
+    int n;
+    int i,j;
+    int ort;
+    int toplam1=0;
+    int toplam2=0;
+    
+    
+    printf("Dizi boyutunu giriniz: " );
+    scanf("%d",&n);
+    
+    ort = n/2 ;
+    
+    for(i = 0 ; i < n ; i++)
+    {
+       printf("%d. elemani giriniz: ",i );
+       scanf("%d",&dizi[i]);
+       
+    }
+    
+    printf("Liste 1 : ");
+    for (i = 1 ; i<=ort ; i++ )
+    {
+       printf(" %d ", dizi[ort-i]);
+       toplam1=toplam1 + dizi[ort-i];
+    }
+    printf("\nListe 1 in toplami : %d ", toplam1);
+    
+    printf("\nListe 2 : ");
+    for (i = ort ; i<n ; i++ )
+    {
+       printf(" %d ", dizi[i]);
+       toplam2=toplam2 + dizi[i];
+    }
+    printf("\nListe 2 nin toplami : %d ", toplam2);
+    printf("\n");
+    
+  
+  system("PAUSE");	
+  return 0;
+}
