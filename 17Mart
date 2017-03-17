@@ -1,0 +1,62 @@
+#include <iostream>
+
+using namespace std;
+
+class myClass{
+    int dizi[10];
+    int index;
+public:
+    myClass(){
+        index=0;
+    }
+    void add(int x);
+    void print();
+
+    myclass & operator=(myClass & x);
+    int getDiziEleman(int i);
+    int getIndex(){
+        return index;
+    };
+
+};
+
+void myClass::add(int x){
+    myClass::dizi[index]=x;
+    myClass::index++;
+
+}
+
+void myClass::print(){
+    for(int i = 0; i < index; i++)
+        cout << dizi[i] << " ";
+    cout << endl;
+}
+
+int myClass::getDiziEleman(int x){
+    return dizi[x];
+}
+
+myClass & myClass::operator=(myClass & x){
+    for(int i=0; i< x.getIndex(); i++){
+        this->add(x.getDiziEleman(i));
+    }
+}
+
+int main()
+{
+    myClass a,b;
+
+    a.add(5);
+    a.add(10);
+    a.add(20);
+    a.add(30);
+    b=a;
+
+    b.print();
+
+   return 0;
+}
+
+//ekleme de ilk önce boş bir yere eleman ekleniyor sonra indis arttırılıyor.Bu olay
+// n e kadar yapılacak. 1+2+...+n in karmaşıklığı O(n^2) olur.
+// = için karmaşıklık n kere yapılacak aynı şekilde karmaşıklığı O(n^2) olur.
