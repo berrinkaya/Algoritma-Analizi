@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+  int a;
+  int b;
+  int i=0;
+  int sonuc=1;
+  int sayac=0;
+  printf("Tabani giriniz: ");
+  scanf("%d",&a);
+  printf("Ussu giriniz: ");
+  scanf("%d",&b);
+  printf("\n");
+  
+  for(i=0; i<b ; i++){        
+            sonuc=sonuc * a;   
+            sayac=sayac+1;;    
+  } 
+  printf("Sonuc= %d\n", sonuc); 
+  printf("Step sayisi= %d\n", sayac);
+  
+  system("PAUSE");	
+  return 0;
+}
