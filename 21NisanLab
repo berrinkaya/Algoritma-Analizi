@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int enkucuk(int a,int dizi[]){
+    int i=0;
+    a=dizi[i];
+    for(i=0;i<sizeof(dizi[i]);i++){
+        if(a<=dizi[i]) 
+            a=dizi[i];
+        else
+            a=a;
+    }
+    return a;
+}
+
+int enbuyuk(int a,int dizi[]){
+    int i=0;
+    a=dizi[i];
+    for(i=0;i<sizeof(dizi[i]);i++){
+        if(a>=dizi[i]) 
+            a=dizi[i];
+        else
+            a=a;
+    }
+    return a;
+}
+
+int ortalama(int a,int dizi[]){
+    int i,sonuc;
+    int toplam=0;
+    for(i=0;i<sizeof(dizi[i]);i++){
+        toplam=toplam+dizi[i];
+    }
+    sonuc=toplam/(sizeof(dizi));
+}
+        
+int main(int argc, char *argv[])
+{
+  int dizi[5]= {1,2,3,4,5};
+  enkucukbul(dizi[5]);
+  enbuyukbul(dizi[5]);
+  ortalama(dizi[5]);
+  
+  system("PAUSE");	
+  return 0;
+}
